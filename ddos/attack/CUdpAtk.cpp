@@ -2197,6 +2197,7 @@ char* CUdpAtk::struct_discover_packet_v4(char* client_mac)
 	char magic_cookie[9] = "63825363";
 
 	char option_dhcp_msg_type[7] = "350101";
+	//option55报文内容
 	char option_parameter_list[31] = "370d011c02790f060c28292a1a7703";
 	char option_end[3] = "ff";
 

@@ -57,7 +57,7 @@ static struct option g_ddos_long_options[] =
 		//{"ack-fw", no_argument, NULL, 'R'},
 		// {"ack-sock", no_argument, NULL, 'Z'},
 		//{"method", required_argument, NULL, 'U'},
-		{"conn", required_argument, NULL, 'W'},
+		// {"conn", required_argument, NULL, 'W'},
 		{"browser", no_argument, NULL, 'X'},
 		//{"ack-bot", no_argument, NULL, 'Y'},
 		{"cnc", required_argument, NULL, 'z'},
@@ -67,7 +67,7 @@ static struct option g_ddos_long_options[] =
 		{ "https", required_argument, NULL, 'G' },   //����http���ֶΣ�
 		{ "sip_attack", required_argument, NULL, 'E' },   //����sip���ֶΣ�sip=0 ��ʾINVITE sip=1��ʾREGISTER
 		//{ "icmp-type", required_argument, NULL, 'F' },   //����icmp_type���ֶΣ�icmp_type=0 ��ʾreply, icmp_type=8 ��ʾrequest
-		//{ "relay_ip", required_argument, NULL, 'f' },
+		{ "relay_ip", required_argument, NULL, 'f' },
 		{ "options", required_argument, NULL, 'j' },
 		{ "client_mac", required_argument, NULL, 'I' },
 		{ "msg_type", required_argument, NULL, 'R' },
@@ -557,7 +557,7 @@ int CDDoSParser::cmd_parser(int argc, char *argv[], CDDoSParam *params)
 				util_strncpy(params->m_domain, optarg, 255);
 				break;
 				
-			/* case 'f':
+			case 'f':
 				//util_strncpy(params->m_relay_ip, optarg, 15);  //{ "options", required_argument, NULL, 'j' },
 				int a[4];
 				ip_address_hex(optarg, a);
@@ -569,7 +569,7 @@ int CDDoSParser::cmd_parser(int argc, char *argv[], CDDoSParam *params)
 				util_strncpy(params->m_relay_ip, buf2, 8);
 				
 				printf("params->m_relay_ip:%s\n", params->m_relay_ip);
-				break; */
+				break; 
 			case 'j':
 				util_strncpy(params->m_options, optarg, 512); //{ "options", required_argument, NULL, 'j' },
 				//printf("params->m_options:%s\n", params->m_options);

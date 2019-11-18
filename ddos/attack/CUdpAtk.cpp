@@ -2206,8 +2206,8 @@ char* CUdpAtk::struct_discover_packet_v4(char* client_mac)
 	char magic_cookie[9] = "63825363";
 
 	char option_dhcp_msg_type[7] = "350101";
-	//option55报文内容
-	char option_parameter_list[31] = "370d011c02790f060c28292a1a7703";
+	
+	
 	char option_end[3] = "ff";
 
 
@@ -2225,7 +2225,13 @@ char* CUdpAtk::struct_discover_packet_v4(char* client_mac)
 	strcat(payload, boot_file);
 	strcat(payload, magic_cookie);
 	strcat(payload, option_dhcp_msg_type);
-	strcat(payload, option_parameter_list);
+
+	//option55报文内容
+	if(strlen(m_params.m_options)==0){
+		char option_parameter_list[31] = "370d011c02790f060c28292a1a7703";
+		strcat(payload, option_parameter_list);
+	}
+	
 	strcat(payload, m_params.m_options);
 	strcat(payload, option_end);
 	return payload;

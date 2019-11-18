@@ -91,7 +91,6 @@ void ip_address_hex(char* address, char* hex_address)
 	}
 	if (n<4&&*s)
 	output[n]=atoi(s);
-    printf("---%d %d %d %d", output[0], output[1], output[2], output[3])
 
 	sprintf(hex_address, "%02X%02X%02X%02X", output[0], output[1], output[2], output[3]);
 	return;

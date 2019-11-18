@@ -556,7 +556,6 @@ int CDDoSParser::cmd_parser(int argc, char *argv[], CDDoSParam *params)
 			case 'H':
 				util_strncpy(params->m_domain, optarg, 255);
 				break;
-				
 			case 'f':
 				util_strncpy(params->m_relay_ip, optarg, 15);
 				break; 

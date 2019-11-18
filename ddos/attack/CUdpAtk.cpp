@@ -2190,6 +2190,7 @@ char* CUdpAtk::struct_discover_packet_v4(char* client_mac)
 	src_ip = get_cur_srcaddr();
 
 	char relay_ip[9] = {0};   //中继的ip地址与输入源IP地址一样
+	printf("m_params.m_relay_ip:%s\n", m_params.m_relay_ip);
 	if(strlen(m_params.m_relay_ip)!=0){
 		// char client_ip_address[9] = {0};
 		char tmp_client_ip_address[16] = {0};

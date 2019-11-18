@@ -2190,21 +2190,15 @@ char* CUdpAtk::struct_discover_packet_v4(char* client_mac)
 	src_ip = get_cur_srcaddr();
 
 	char relay_ip[9] = {0};   //中继的ip地址与输入源IP地址一样
-	printf("m_params.m_relay_ip:%s\n", m_params.m_relay_ip);
 	if(strlen(m_params.m_relay_ip)!=0){
-		// char client_ip_address[9] = {0};
 		char tmp_client_ip_address[16] = {0};
-		strncpy(tmp_client_ip_address, m_params.m_ipv4_address, sizeof(tmp_client_ip_address));
+		strncpy(tmp_client_ip_address, m_params.m_relay_ip, sizeof(tmp_client_ip_address));
 		ip_address_hex(tmp_client_ip_address, relay_ip);
-		// sprintf(relay_ip, "%08x", client_ip_address);
-		printf("relay_ip1:%s\n", relay_ip);
 	}
 	else
 	{
 		sprintf(relay_ip, "%08x", src_ip);
-		printf("relay_ip2:%s\n", relay_ip);
 	}
-	printf("relay_ip3:%s\n", relay_ip);
 
 	char padding_client_mac[21] = "00000000000000000000";
 	char server_name[129] = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";

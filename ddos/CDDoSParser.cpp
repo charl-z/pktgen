@@ -558,7 +558,8 @@ int CDDoSParser::cmd_parser(int argc, char *argv[], CDDoSParam *params)
 				break;
 				
 			case 'f':
-				RC_LOG_INFO("test ****************************** %s \n", optarg);
+				RC_LOG_INFO("case 'f' ****************************** %s \n", optarg);
+				printf("params->m_relay_ip:%s\n", optarg);
 				//util_strncpy(params->m_relay_ip, optarg, 15);  //{ "options", required_argument, NULL, 'j' },
 				// int a[4];
 				// ip_address_hex(optarg, a);

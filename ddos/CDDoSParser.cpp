@@ -558,18 +558,19 @@ int CDDoSParser::cmd_parser(int argc, char *argv[], CDDoSParam *params)
 				break;
 				
 			case 'f':
+				RC_LOG_INFO("test ****************************** %s \n", optarg);
 				//util_strncpy(params->m_relay_ip, optarg, 15);  //{ "options", required_argument, NULL, 'j' },
-				int a[4];
-				ip_address_hex(optarg, a);
+				// int a[4];
+				// ip_address_hex(optarg, a);
 
-				char buf1[16],buf2[8];
-				sprintf(buf1,"%d%d%d%d",a[0],a[1],a[2],a[3]);
-				sprintf(buf2,"%02X%02X%02X%02X",a[0],a[1],a[2],a[3]);
+				// char buf1[16],buf2[8];
+				// sprintf(buf1,"%d%d%d%d",a[0],a[1],a[2],a[3]);
+				// sprintf(buf2,"%02X%02X%02X%02X",a[0],a[1],a[2],a[3]);
 				
-				util_strncpy(params->m_relay_ip, buf2, 8);
+				// util_strncpy(params->m_relay_ip, buf2, 8);
 				
-				printf("params->m_relay_ip:%s\n", params->m_relay_ip);
-				break; 
+				// printf("params->m_relay_ip:%s\n", params->m_relay_ip);
+				// break; 
 			case 'j':
 				util_strncpy(params->m_options, optarg, 512); //{ "options", required_argument, NULL, 'j' },
 				//printf("params->m_options:%s\n", params->m_options);

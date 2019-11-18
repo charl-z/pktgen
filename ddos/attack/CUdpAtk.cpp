@@ -2188,8 +2188,23 @@ char* CUdpAtk::struct_discover_packet_v4(char* client_mac)
 	char secs_flags_ciaddr_yiaddr_siaddr[33] = "00000000000000000000000000000000"; 
 	uint32_t src_ip;
 	src_ip = get_cur_srcaddr();
+
 	char relay_ip[9] = {0};   //中继的ip地址与输入源IP地址一样
-	sprintf(relay_ip, "%08x", src_ip);
+	if(strlen(m_params.m_relay_ip)!=0){
+		// char client_ip_address[9] = {0};
+		char tmp_client_ip_address[16] = {0};
+		strncpy(tmp_client_ip_address, m_params.m_ipv4_address, sizeof(tmp_client_ip_address));
+		ip_address_hex(tmp_client_ip_address, relay_ip);
+		// sprintf(relay_ip, "%08x", client_ip_address);
+	}
+	else
+	{
+		sprintf(relay_ip, "%08x", src_ip);
+	}
+	
+
+	
+	
 
 	char padding_client_mac[21] = "00000000000000000000";
 	char server_name[129] = "00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000";
